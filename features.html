@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventador SVJ | Technology & Dynamics Directory</title>
+    <link rel="icon" href="lamborghini-logo-gallery-italian-car-logos-0.png">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Premium Design Theme Variables --- */
+        :root {
+            --bg-color: #08090d;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.05);
+            --accent-color: #ffe100;
+            --accent-glow: rgba(255, 225, 0, 0.25);
+            --text-primary: #ffffff;
+            --text-muted: #8e94a5;
+        }
+
+        /* --- Global Resets & Base Styles --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated grid background overlay */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.007) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.007) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Subtle radial ambient glow */
+        .ambient-glow {
+            position: fixed;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 50vh;
+            background: radial-gradient(circle, rgba(255, 225, 0, 0.04) 0%, transparent 70%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* --- Layout Container --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0 80px 0;
+            z-index: 5;
+            position: relative;
+        }
+
+        /* --- Header Section --- */
+        .header {
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s, transform 0.3s;
+            width: fit-content;
+        }
+
+        .back-link svg {
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-4px);
+        }
+
+        .eyebrow {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .highlight {
+            background: linear-gradient(to right, #ffffff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            font-weight: 300;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* --- Features List --- */
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: grid;
+            grid-template-columns: 80px 1fr 320px;
+            gap: 32px;
+            align-items: start;
+            transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 40px rgba(255, 225, 0, 0.03);
+            transform: translateY(-4px);
+        }
+
+        /* Entrance Animations */
+        .feature-card:nth-child(1) { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s forwards; }
+        .feature-card:nth-child(2) { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards; }
+        .feature-card:nth-child(3) { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.45s forwards; }
+        .feature-card:nth-child(4) { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards; }
+        .feature-card:nth-child(5) { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.75s forwards; }
+
+        .icon-wrapper {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 0 6px var(--accent-glow));
+        }
+
+        .feature-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .feature-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-meaning-label {
+            color: var(--accent-color);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .feature-meaning {
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .feature-desc-label {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .feature-spec-panel {
+            background-color: rgba(255, 255, 255, 0.01);
+            border-left: 2px solid var(--accent-color);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            height: 100%;
+        }
+
+        .spec-panel-title {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .spec-value {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            z-index: 5;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 992px) {
+            .feature-card {
+                grid-template-columns: 80px 1fr;
+                gap: 24px;
+            }
+
+            .feature-spec-panel {
+                grid-column: 1 / span 2;
+                border-left: none;
+                border-top: 2px solid var(--accent-color);
+                border-radius: 0 0 12px 12px;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 16px 20px;
+            }
+
+            .spec-item {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 0 60px 0;
+            }
+
+            .header {
+                margin-bottom: 40px;
+            }
+
+            .title {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                grid-template-columns: 1fr;
+                padding: 24px;
+                gap: 20px;
+            }
+
+            .icon-wrapper {
+                width: 64px;
+                height: 64px;
+            }
+
+            .feature-name {
+                font-size: 1.5rem;
+            }
+
+            .feature-spec-panel {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    
+    <main class="container">
+        <!-- Navigation / Header -->
+        <div class="header">
+            <a href="webpage.html" class="back-link">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Showroom
+            </a>
+            <span class="eyebrow">Technical Directory</span>
+            <h1 class="title">SVJ <span class="highlight">Performance</span> Engineering</h1>
+            <p class="subtitle">An in-depth look at the cutting-edge systems and advanced aerodynamics that allow the Lamborghini Aventador SVJ to conquer the race track.</p>
+        </div>
+
+        <!-- Features Explanations -->
+        <div class="features-list">
+            <!-- 1. V12 Powerhouse -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
+                <div class="feature-info">
+                    <h2 class="feature-name">V12 Powerhouse</h2>
+                    <span class="feature-meaning-label">The Concept / Meaning</span>
+                    <p class="feature-meaning">A naturally aspirated, high-revving 6.5-liter V12 internal combustion engine representing the absolute pinnacle of traditional mechanical power.</p>
+                    <span class="feature-desc-label">What It Does / Functionality</span>
+                    <p class="feature-desc">It converts high-octane fuel into 770 CV (770 HP) and 720 Nm of raw torque without the delay of turbochargers. It breathes in massive volumes of air through optimized intake runners, driving the pistons to an extreme 8,500 RPM to launch the car from 0-100 km/h in 2.8 seconds and unleash an exhaust note measuring 115 dB.</p>
+                </div>
+                <div class="feature-spec-panel">
+                    <span class="spec-panel-title">Specifications</span>
+                    <div class="spec-item">
+                        <span class="spec-value">770 CV @ 8,500 RPM</span>
+                        <span class="spec-label">Peak Power Output</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">6.5 Liters (6,498 cc)</span>
+                        <span class="spec-label">Engine Displacement</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">720 Nm @ 6,750 RPM</span>
+                        <span class="spec-label">Maximum Torque</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. LDVI Brain -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
+                <div class="feature-info">
+                    <h2 class="feature-name">LDVI Brain</h2>
+                    <span class="feature-meaning-label">The Concept / Meaning</span>
+                    <p class="feature-meaning">Lamborghini Dinamica Veicolo Integrata (Lamborghini Integrated Vehicle Dynamics)—the centralized electronic brain coordinating the car’s active chassis systems.</p>
+                    <span class="feature-desc-label">What It Does / Functionality</span>
+                    <p class="feature-desc">It monitors driving inputs (steering angle, throttle pressure, braking force) and lateral/longitudinal G-forces at a rate of 50 times per second. By anticipating the driver’s intentions, it instantly coordinates and adjusts the settings of the active aerodynamics, magnetic suspension, all-wheel-drive system, and rear-wheel steering to ensure optimal traction and cornering safety.</p>
+                </div>
+                <div class="feature-spec-panel">
+                    <span class="spec-panel-title">Specifications</span>
+                    <div class="spec-item">
+                        <span class="spec-value">Feed-Forward Control</span>
+                        <span class="spec-label">Logic Architecture</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">50 Hz (Every 20ms)</span>
+                        <span class="spec-label">Sensor Monitoring Rate</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">Real-time Integration</span>
+                        <span class="spec-label">Execution Latency</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Active Aero (ALA 2.0) -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                </div>
+                <div class="feature-info">
+                    <h2 class="feature-name">Active Aero (ALA 2.0)</h2>
+                    <span class="feature-meaning-label">The Concept / Meaning</span>
+                    <p class="feature-meaning">Aerodinamica Lamborghini Attiva (Lamborghini Active Aerodynamics) 2.0—a patented active system that varies aerodynamic configuration based on speed and cornering force.</p>
+                    <span class="feature-desc-label">What It Does / Functionality</span>
+                    <p class="feature-desc">It uses electric actuators to open or close air flaps in the front splitter and on the engine cover in under 500 milliseconds. Under heavy braking and cornering, flaps close to maximize downforce (+700% compared to standard SV). In straightaways, flaps open to route airflow under the body and wing, stalling the spoiler to minimize drag and maximize top speed.</p>
+                </div>
+                <div class="feature-spec-panel">
+                    <span class="spec-panel-title">Specifications</span>
+                    <div class="spec-item">
+                        <span class="spec-value">&lt; 500 milliseconds</span>
+                        <span class="spec-label">Flap Activation Time</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">+700% Downforce</span>
+                        <span class="spec-label">Max Cornering Load</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">Aero Vectoring</span>
+                        <span class="spec-label">Left/Right Load Shifting</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. HMI Cockpit -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
+                <div class="feature-info">
+                    <h2 class="feature-name">HMI Cockpit</h2>
+                    <span class="feature-meaning-label">The Concept / Meaning</span>
+                    <p class="feature-meaning">Human-Machine Interface—the digital instrument cluster and center console display dedicated to vehicle management and tracking.</p>
+                    <span class="feature-desc-label">What It Does / Functionality</span>
+                    <p class="feature-desc">It serves as the driver's telemetry control room. It displays real-time track maps, registers lap times via integrated GPS, and monitors the active flaps of the ALA 2.0 system. It also allows configuration of the custom "Ego" driving mode, letting the driver mix-and-match steering, traction, and suspension firmness parameters independently.</p>
+                </div>
+                <div class="feature-spec-panel">
+                    <span class="spec-panel-title">Specifications</span>
+                    <div class="spec-item">
+                        <span class="spec-value">8.4" Touchscreen</span>
+                        <span class="spec-label">Infotainment Display</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">Dual-Camera System</span>
+                        <span class="spec-label">Telemetry Logging</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">Strada/Sport/Corsa/Ego</span>
+                        <span class="spec-label">Dynamic Drive Modes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. All-Wheel Steering -->
+            <div class="feature-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M2 12h4M18 12h4"></path></svg>
+                </div>
+                <div class="feature-info">
+                    <h2 class="feature-name">All-Wheel Steering</h2>
+                    <span class="feature-meaning-label">The Concept / Meaning</span>
+                    <p class="feature-meaning">Lamborghini Rear-Wheel Steering (LRS)—an active system that mechanically alters the steering angle of the rear axle.</p>
+                    <span class="feature-desc-label">What It Does / Functionality</span>
+                    <p class="feature-desc">At low speeds, LRS steers the rear wheels in the opposite direction of the front wheels (up to +/- 3°), virtualizing a shorter wheelbase to improve tight cornering agility. At high speeds, it steers the rear wheels in parallel with the front axle, virtualizing a longer wheelbase to ensure rock-solid stability during lane changes and fast bends.</p>
+                </div>
+                <div class="feature-spec-panel">
+                    <span class="spec-panel-title">Specifications</span>
+                    <div class="spec-item">
+                        <span class="spec-value">Up to +/- 3 Degrees</span>
+                        <span class="spec-label">Max Steering Angle</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">Virtual Wheelbase Adjustment</span>
+                        <span class="spec-label">Axle Tuning Logic</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-value">10.5 meters</span>
+                        <span class="spec-label">Minimum Turn Radius</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Automobili Lamborghini S.p.A. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

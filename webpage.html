@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamborghini Aventador SVJ | The Edge of Performance</title>
+    <link rel="icon" href="lamborghini-logo-gallery-italian-car-logos-0.png">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="web.css">
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img class="logo-icon" src="lamborghini-logo-gallery-italian-car-logos-0.png" alt="Lamborghini Shield">
+            <span class="logo-text">LAMBORGHINI</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#specs" class="nav-link">Specs</a>
+            <a href="#features" class="nav-link">Features</a>
+            <a href="#experience" class="nav-link">3D View</a>
+            <a href="#customizer" class="nav-link">Customize</a>
+            <a href="#booking" class="nav-link">Book Now</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="icon-btn" id="search-trigger" aria-label="Search">
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <button class="icon-btn hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+    <!-- Scroll Progress Indicator Dots -->
+    <div class="scroll-dots">
+        <a href="#home" class="dot active" data-section="0"></a>
+        <a href="#specs" class="dot" data-section="1"></a>
+        <a href="#features" class="dot" data-section="2"></a>
+        <a href="#experience" class="dot" data-section="3"></a>
+        <a href="#customizer" class="dot" data-section="4"></a>
+        <a href="#booking" class="dot" data-section="5"></a>
+    </div>
+    <!-- Fixed 3D Canvas Background -->
+    <div id="canvas-container">
+        <div id="canvas-3d"></div>
+    </div>
+    <!-- Page Scroll Snap Wrapper -->
+    <main class="scroll-container">
+        <!-- 1. Home Hero Section -->
+        <section id="home" class="panel">
+            <div class="hero-container">
+                <span class="eyebrow">BUILT TO PERFORM</span>
+                <h1 class="mainHeading">
+                    Lamborghini <br>
+                    <span class="highlight">Aventador</span> SVJ
+                </h1>
+                <h3 class="subHeading"><i>Unleash the Power of Performance and Innovation</i></h3>
+                
+                <div class="hero-actions">
+                    <a href="#specs" class="btn btn-primary">Explore Performance</a>
+                    <a href="#experience" class="btn btn-outline">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" class="play-icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        3D Tour
+                    </a>
+                </div>
+            </div>
+            
+            <video class="video-bg" autoplay muted loop id="myVideo">
+                <source src="1st.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+
+        </section>
+        <!-- 2. Performance Specs Section -->
+        <section id="specs" class="panel">
+            <div class="section-content left-align">
+                <span class="section-tag">ENGINEERING TRIUMPH</span>
+                <h2 class="section-title">CHOOSE <span class="highlight">POWER</span></h2>
+                
+                <div class="specs-grid">
+                    <div class="spec-card">
+                        <div class="spec-value">6.5L</div>
+                        <div class="spec-label">Naturally Aspirated V12</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-progress="95%"></div>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-value">770 HP</div>
+                        <div class="spec-label">Maximum Horsepower</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-progress="94%"></div>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-value">350 km/h</div>
+                        <div class="spec-label">Top Velocity</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-progress="96%"></div>
+                        </div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-value">2.8 s</div>
+                        <div class="spec-label">0-100 km/h Acceleration</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" data-progress="98%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Carousel Section -->
+        <section id="features" class="panel">
+            <div class="carousel-section-container">
+                <div class="carousel-left">
+                    <span class="section-tag">INNOVATIVE DYNAMICS</span>
+                    <h2 class="section-title">PERFORMANCE <span class="highlight">FEATURES</span></h2>
+                    
+                    <!-- 3D Carousel container -->
+                    <div class="carousel-3d-container">
+                        <div class="carousel-spinner">
+                            <!-- Card 1 -->
+                            <div class="carousel-card active" data-index="0">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                </div>
+                                <div class="card-title">V12 Engine</div>
+                                <span class="hover-tip">Hover to inspect</span>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="carousel-card" data-index="1">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                                </div>
+                                <div class="card-title">LDVI Brain</div>
+                                <span class="hover-tip">Hover to inspect</span>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="carousel-card" data-index="2">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                                </div>
+                                <div class="card-title">Active Aero</div>
+                                <span class="hover-tip">Hover to inspect</span>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="carousel-card" data-index="3">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                                </div>
+                                <div class="card-title">HMI Cockpit</div>
+                                <span class="hover-tip">Hover to inspect</span>
+                            </div>
+                            <!-- Card 5 -->
+                            <div class="carousel-card" data-index="4">
+                                <div class="card-icon">
+                                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M2 12h4M18 12h4"></path></svg>
+                                </div>
+                                <div class="card-title">All-Wheel Steering</div>
+                                <span class="hover-tip">Hover to inspect</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-right">
+                    <!-- Glassmorphic Side panel for card details -->
+                    <div class="info-panel active" id="feature-info-panel">
+                        <div class="info-header">
+                            <div class="info-icon" id="info-panel-icon">
+                                <svg viewBox="0 0 24 24" width="36" height="36" stroke="var(--accent-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            </div>
+                            <h3 class="info-title" id="info-panel-title">V12 Powerhouse</h3>
+                        </div>
+                        <p class="info-desc" id="info-panel-desc">Naturally aspirated 6.5L V12 engine screaming up to 8,500 RPM, delivering 770 HP of pure raw adrenaline.</p>
+                        <div class="info-footer">
+                            <span class="info-specs-label">TECHNICAL SPECIFICATION</span>
+                            <div class="info-specs" id="info-panel-specs">RPM Limit: 8,700 | Sound Level: 115 dB</div>
+                        </div>
+                        <div class="tech-link-wrapper" style="margin-top: 24px; display: flex; justify-content: flex-end;">
+                            <a href="features.html" class="btn btn-outline" target="_blank" style="padding: 10px 18px; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;">
+                                Tech Directory
+                                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 3. 3D Experience Section -->
+        <section id="experience" class="panel">
+            <div class="section-content center-align">
+                <span class="section-tag">AERODYNAMICS IN 3D</span>
+                <h2 class="section-title">INTERACTIVE <span class="highlight">EXPERIENCE</span></h2>
+                <p class="section-desc">Move your cursor to orbit and rotate the aerodynamic profile. Explore the sleek geometry designed to cut through the air.</p>
+                <div class="mouse-indicator">
+                    <span class="mouse-icon">
+                        <span class="scroll-wheel"></span>
+                    </span>
+                    <span class="mouse-text">Move mouse to inspect</span>
+                </div>
+            </div>
+        </section>
+        <!-- 4. Color Customizer Section -->
+        <section id="customizer" class="panel">
+            <div class="section-content right-align">
+                <span class="section-tag">PERSONALIZATION</span>
+                <h2 class="section-title">CUSTOMIZE <span class="highlight">YOURS</span></h2>
+                <p class="section-desc">Select from Automobili Lamborghini's high-gloss metallic palettes and watch your design transform instantly in the 3D viewer.</p>
+                
+                <div class="customizer-panel">
+                    <div class="customizer-group">
+                        <label class="group-label">Body Paint</label>
+                        <div class="swatches-container">
+                            <button class="swatch active" data-color="#ffe100" style="background-color: #ffe100;" title="Giallo Orion (Yellow)"></button>
+                            <button class="swatch" data-color="#ff5500" style="background-color: #ff5500;" title="Arancio Argos (Orange)"></button>
+                            <button class="swatch" data-color="#e02447" style="background-color: #e02447;" title="Rosso Anteros (Red)"></button>
+                            <button class="swatch" data-color="#0055ff" style="background-color: #0055ff;" title="Blu Nethuns (Blue)"></button>
+                            <button class="swatch" data-color="#24e064" style="background-color: #24e064;" title="Verde Mantis (Green)"></button>
+                            <button class="swatch" data-color="#1c1c1e" style="background-color: #1c1c1e;" title="Nero Noctis (Black)"></button>
+                        </div>
+                    </div>
+                    <div class="customizer-group">
+                        <label class="group-label">Underglow Neon</label>
+                        <div class="swatches-container" id="glow-swatches">
+                            <button class="glow-swatch active" data-glow="#ffe100" style="background-color: rgba(255, 225, 0, 0.4); border-color: #ffe100;"></button>
+                            <button class="glow-swatch" data-glow="#ff5500" style="background-color: rgba(255, 85, 0, 0.4); border-color: #ff5500;"></button>
+                            <button class="glow-swatch" data-glow="#e02447" style="background-color: rgba(224, 36, 71, 0.4); border-color: #e02447;"></button>
+                            <button class="glow-swatch" data-glow="#0055ff" style="background-color: rgba(0, 85, 255, 0.4); border-color: #0055ff;"></button>
+                            <button class="glow-swatch" data-glow="#24e064" style="background-color: rgba(36, 224, 100, 0.4); border-color: #24e064;"></button>
+                        </div>
+                    </div>
+                    <div class="customizer-summary">
+                        Selected: <span id="selected-color-name" class="highlight">Giallo Orion</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 5. Inquiry & Footer Section -->
+        <section id="booking" class="panel">
+            <div class="booking-container">
+                <div class="booking-form-wrapper">
+                    <span class="section-tag">RESERVE A TEST DRIVE</span>
+                    <h2 class="form-title">BOOK A <span class="highlight">VIEWING</span></h2>
+                    
+                    <form class="glass-form" id="booking-form">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required placeholder="John Doe">
+                            </div>
+                            <div class="input-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="car-model">Car Model</label>
+                                <select id="car-model">
+                                    <option>Aventador SVJ</option>
+                                    <option>Huracán STO</option>
+                                    <option>Revuelto</option>
+                                    <option>Urus Performante</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="config-color">Selected Configuration</label>
+                                <input type="text" id="config-color" readonly value="Giallo Orion Edition">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label for="location">Preferred Showroom</label>
+                                <select id="location">
+                                    <option>Rome, Italy</option>
+                                    <option>Sant'Agata Bolognese, Italy (HQ)</option>
+                                    <option>New York, USA</option>
+                                    <option>Tokyo, Japan</option>
+                                    <option>New Delhi, India</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <!-- empty input group to maintain layout balance -->
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn">Submit Request</button>
+                    </form>
+                </div>
+                <!-- Footer elements inside section -->
+                <footer class="footer">
+                    <p class="copyright">© 2026 Automobili Lamborghini S.p.A. All Rights Reserved.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </main>
+    <!-- Search Overlay Modal -->
+    <div id="search-modal" class="search-modal">
+        <div class="search-modal-content">
+            <button class="search-close-btn" id="search-close" aria-label="Close search">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="search-input-wrapper">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="var(--accent-color)" stroke-width="2" fill="none" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="search-query" placeholder="Search specs, features, colors..." autocomplete="off">
+            </div>
+            <div class="search-results" id="search-results-list"></div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast-notification" class="toast-notification"></div>
+
+    <!-- Custom Logic Script -->
+    <script src="web.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "8c4ea78e-01a7-47b2-a4e3-772986427382",
+		"name": "Lamborghini SVJ Booking API",
+		"description": "API collection for testing the Lamborghini Aventador SVJ showcase booking system using MongoDB.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Bookings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contacts"
+					]
+				},
+				"description": "Retrieve all booking records from the MongoDB database."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Booking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Bruce Wayne\",\n    \"email\": \"bruce@waynecorp.com\",\n    \"car_model\": \"Revuelto\",\n    \"config_color\": \"Nero Noctis Edition\",\n    \"location\": \"New York, USA\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/contact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contact"
+					]
+				},
+				"description": "Create a new showroom booking in the MongoDB database."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Booking",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/contacts/{{contact_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contacts",
+						"{{contact_id}}"
+					]
+				},
+				"description": "Delete a booking record from the MongoDB database by its string ObjectID."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "contact_id",
+			"value": "REPLACE_WITH_MONGO_ID",
+			"type": "string"
+		}
+	]
+}
